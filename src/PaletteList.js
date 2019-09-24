@@ -42,7 +42,9 @@ class PaletteList extends Component {
     const { palettes, classes } = this.props;
     let palettesNames = palettes.map((palette) => {
       return (
-        <MiniPalette {...palette}/>
+        <Link to={`/palette/${palette.id}`}>
+          <MiniPalette {...palette}/>
+        </Link>
       )})
     return (
       <div className={classes.root}>
