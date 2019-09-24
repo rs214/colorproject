@@ -9,11 +9,12 @@ const styles = {
     height: "100%",
     display: "flex",
     alignItems: "flex-start",
-    justfyContent: "center"
+    justifyContent: "center"
   },
   container: {
     width: "50%",
     display: "flex",
+    alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap"
   },
@@ -39,7 +40,7 @@ class PaletteList extends Component {
 
   render() {
     const { palettes, classes } = this.props;
-    let palettesNames = this.props.palettes.map((palette) => {
+    let palettesNames = palettes.map((palette) => {
       return (
         <MiniPalette {...palette}/>
       )})
