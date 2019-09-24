@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
   root: {
-    border: "1px solid black",
     backgroundColor: "white",
     borderRadius: "5px",
     padding: "0.5rem",
@@ -14,9 +13,11 @@ const styles = {
     }
   },
   colors: {
-    backgroundColor: "grey",
+    backgroundColor: "#dae1e4",
     height: "150px",
-    width: "100%"
+    width: "100%",
+    borderRadius: "5px",
+    overflow: "hidden"
   },
   title: {
     display: "flex",
