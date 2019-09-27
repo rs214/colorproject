@@ -38,13 +38,15 @@ class PaletteList extends Component {
     super(props);
   }
 
+  goToPalette(id) {
+    this.props.history.push(`/palette/${id}`)
+  }
+
   render() {
     const { palettes, classes } = this.props;
     let palettesNames = palettes.map((palette) => {
       return (
-        <Link to={`/palette/${palette.id}`}>
-          <MiniPalette {...palette}/>
-        </Link>
+        <MiniPalette {...palette} handleClick={() => this.goToPalette(palette.id)}/>
       )})
     return (
       <div className={classes.root}>
