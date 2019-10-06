@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import MiniPalette from './MiniPalette';
-import { withStyles } from '@material-ui/styles';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import MiniPalette from "./MiniPalette";
+import { withStyles } from "@material-ui/styles";
 
 const styles = {
   root: {
@@ -20,7 +21,13 @@ const styles = {
   nav: {
     display: "flex",
     width: "100%",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    alignItems: "center",
+    color: "white",
+    "& a": {
+      color: "white",
+      textDecoration: "none"
+    }
   },
   palettes: {
     boxSizing: "border-box",
@@ -29,8 +36,7 @@ const styles = {
     gridTemplateColumns: "repeat(3, 30%)",
     gridGap: "5%"
   }
-}
-
+};
 
 class PaletteList extends Component {
   constructor(props) {
@@ -38,24 +44,27 @@ class PaletteList extends Component {
   }
 
   goToPalette(id) {
-    this.props.history.push(`/palette/${id}`)
+    this.props.history.push(`/palette/${id}`);
   }
 
   render() {
     const { palettes, classes } = this.props;
-    let palettesNames = palettes.map((palette) => {
+    let palettesNames = palettes.map(palette => {
       return (
-        <MiniPalette {...palette} handleClick={() => this.goToPalette(palette.id)}/>
-      )})
+        <MiniPalette
+          {...palette}
+          handleClick={() => this.goToPalette(palette.id)}
+        />
+      );
+    });
     return (
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h1>PaletteList</h1>
+            <Link to="/palette/new">Create New Palette</Link>
           </nav>
-          <div className={classes.palettes}>
-            {palettesNames}
-          </div>
+          <div className={classes.palettes}>{palettesNames}</div>
         </div>
       </div>
     );
